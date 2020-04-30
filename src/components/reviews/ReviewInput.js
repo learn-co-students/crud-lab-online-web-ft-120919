@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
-import { connect } from 'react-redux'
+// import Reviews from './Reviews';
+// import { connect } from 'react-redux'
 
 // call connect need to get restaurantid into redux when adding restaurant???
 
@@ -8,7 +8,8 @@ class ReviewInput extends Component {
 
   state = {
     text: "",
-    restaurantId: 0
+    restaurantId: this.props.restaurant.id
+    // restaurantId: ""
   }
 
   handleOnChange(event) {
@@ -20,9 +21,11 @@ class ReviewInput extends Component {
   handleOnSubmit(event) {
     event.preventDefault()
     this.props.addReview(this.state);
+    // console.log('review input', this.props.restaurant.id)
     this.setState({
       text: '',
     });
+    // console.log('review submit', this.state)
   }
 
   render() {
@@ -44,10 +47,7 @@ class ReviewInput extends Component {
 };
 
 
+// const mapStateToProps = ({restaurant}) => ({restaurant})
 
-
-export default (ReviewInput);
-
-
-// export default ReviewInput;
+export default ReviewInput;
 // export default connect(mapStateToProps)(ReviewInput);

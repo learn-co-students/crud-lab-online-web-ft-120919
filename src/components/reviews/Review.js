@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Review = props => {
   return (
     <div>
-          {/* {console.log('review comp', props)} */}
+          {console.log('review comp', props)}
 
         <li>
           {props.review.text}
           <button
-          onClick={() => props.delete(props.review.id)}
+          onClick={() => props.deleteReview(props.review.id)}
           > x </button>
           
         </li>
