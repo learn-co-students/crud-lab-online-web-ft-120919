@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
 
-class Restaurant extends Component {
 
-
-  render() {
-    const { restaurant } = this.props;
-
-    return (
-      <div>
+const Restaurant = props => {
+  return (
+    <div>
+    {console.log('restaurant comp', props)}
         <li>
-          {restaurant.text}
-          <button> X </button>
-          <ReviewsContainer restaurant={restaurant}/>
+          {props.restaurant.text}
+          <button
+          onClick={() => props.deleteRestaurant(props.restaurant.id)}
+          > X </button>
+          <ReviewsContainer restaurant={props.restaurant}/>
         </li>
       </div>
-    );
-  }
-};
+  )
+}
 
 export default Restaurant;
